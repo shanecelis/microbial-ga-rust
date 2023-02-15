@@ -15,6 +15,8 @@ fn rnd() -> f32 {
 
 /// The microbial genetic algorithm by Harvey (2009) rewritten in rust.
 ///
+/// Should use bitfields instead of huge i32 booleans.
+///
 /// Inman Harvey. 2009. The microbial genetic algorithm. In Proceedings of the
 /// 10th European conference on Advances in artificial life: Darwin meets von
 /// Neumann - Volume Part II (ECAL'09). Springer-Verlag, Berlin, Heidelberg,
@@ -33,7 +35,6 @@ fn microbial_tournament(genes: &mut [&mut [i32]]) {
         };
     let n = genes[w].len();
     for i in 0..n {                  // Walk down n genes
-
         if rnd()<REC {               // RECombn rate
             genes[l][i]=genes[w][i]; // Copy from Winner
         }
